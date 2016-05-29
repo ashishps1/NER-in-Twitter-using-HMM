@@ -17,7 +17,7 @@ with open('en.txt') as swords:
 	for line in allWords:
 		stopWords.append(line.strip())
 		
-punctuationSymbols = ['?','!','.','-','@','\\','#',';']
+punctuationSymbols = ['?','!','.','-','@','\\','#',';','|',':','(',')']
 
 class listener(StreamListener):
 	
@@ -51,7 +51,7 @@ class listener(StreamListener):
 
 		except BaseException as e:
 			print('failed ondata,',str(e))
-			time.sleep(5)
+			time.sleep(1)
 
 	def on_error(self, status):
 		print (status)
@@ -60,4 +60,4 @@ auth = OAuthHandler(ckey, csecret)
 auth.set_access_token(atoken, asecret)
 
 twitterStream = Stream(auth, listener())
-twitterStream.filter(track=["india"])
+twitterStream.filter(track='sport')

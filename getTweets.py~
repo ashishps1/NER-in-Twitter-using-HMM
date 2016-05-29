@@ -17,7 +17,7 @@ with open('en.txt') as swords:
 	for line in allWords:
 		stopWords.append(line.strip())
 		
-punctuationSymbols = ['?','!','.','-','@','\\','#',';']
+punctuationSymbols = ['?','!','.','-','@','\\','#',';','|',':','(',')']
 
 class listener(StreamListener):
 	
@@ -44,14 +44,14 @@ class listener(StreamListener):
 					tim=data.split('":"')[1].split('+')[0]
 					print(tim)
 					saveThis=str(tim) + ' :: ' + str(cleanedTweet)	    	
-					saveFile=open('tweettDB.csv','a')
+					saveFile=open('tweetDB.txt','a')
 					saveFile.write(saveThis+'\n')
 					saveFile.close()
 			return True
 
 		except BaseException as e:
 			print('failed ondata,',str(e))
-			time.sleep(5)
+			time.sleep(1)
 
 	def on_error(self, status):
 		print (status)
@@ -60,4 +60,4 @@ auth = OAuthHandler(ckey, csecret)
 auth.set_access_token(atoken, asecret)
 
 twitterStream = Stream(auth, listener())
-twitterStream.filter(track=["india"])
+twitterStream.filter(track='game')
