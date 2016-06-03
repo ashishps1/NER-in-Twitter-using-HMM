@@ -5,10 +5,10 @@ from tweepy.streaming import StreamListener
 import time
 
 #consumer key, consumer secret, access token, access secret.
-ckey="ZvghhRGSbIF5AIFdpr7uE9dcx"
-csecret="C3Z0a8Z3G8jaRMicos8B0iylW1nLc4yWZNj7zWq1Df9y6TdD4L"
-atoken="1676249395-yGwErJNDT8gLe7S3olMAwSjqG4qNCuZ82l2ufUF"
-asecret="eqpMpQRO8R9mYV1GtN2hrN1tm5rCvMOR4gk98xV0gh5xK"
+ckey=""
+csecret=""
+atoken=""
+asecret=""
 
 stopWords=[]
 
